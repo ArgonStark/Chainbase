@@ -317,6 +317,7 @@ echo -e "${GREEN}Running AVS...${NC}"
 # Get AVS link
 echo -e "${GREEN}Fetching AVS link...${NC}"
 export PATH=$PATH:~/bin
+eigenlayer operator status operator.yaml
 
 # Checking Operator Health
 echo -e "${YELLOW}Checking operator health on port 8080...${NC}"
