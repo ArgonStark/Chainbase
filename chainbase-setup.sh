@@ -272,6 +272,10 @@ EOL
 echo -e "${GREEN}Creating necessary folders for Docker...${NC}"
 source .env && mkdir -pv ${EIGENLAYER_HOME} ${CHAINBASE_AVS_HOME} ${NODE_LOG_PATH_HOST}
 
+# Starting docker to prevent problems 
+echo -e "${GREEN}Starting Docker ...${NC}"
+systemctl start docker
+
 # Give permissions to bash script
 echo -e "${GREEN}Giving execute permissions to chainbase-avs.sh...${NC}"
 chmod +x ./chainbase-avs.sh
