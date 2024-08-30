@@ -19,6 +19,9 @@ cat << "EOF"
                      __/ |                                                       
                     |___/                                                        
 EOF
+
+sleep 3
+
 echo -e "${NC}"
 
 # Print startup message
