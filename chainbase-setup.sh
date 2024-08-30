@@ -101,7 +101,7 @@ select option in "Import" "Create" "Already Imported"; do
 done
 
 # Funding EigenLayer Ethereum Address
-echo -e "${BLUE}Do you need to fund your Eigenlayer ethereum address with at least 1 ETH on Holesky testnet? (yes/no)${NC}"
+echo -e "${BLUE}You need to fund your Eigenlayer address with at least 1 Holesky ETH . Did you fund your address (yes/no)${NC}"
 read -p "Choice: " fund_choice
 if [ "$fund_choice" == "yes" ]; then
   echo -e "${YELLOW}Please fund your address before continuing.${NC}"
@@ -112,7 +112,7 @@ echo -e "${YELLOW}Configuring & registering operator...${NC}"
 eigenlayer operator config create
 
 # Edit metadata.json
-echo -e "${YELLOW}Please provide the following information to populate metadata.json:${NC}"
+echo -e "${YELLOW}Please provide the following information to metadata.json and after that copy the your provided data and create a metadata file on your github !:${NC}"
 read -p "Name: " name
 read -p "Website: " website
 read -p "Description: " description
