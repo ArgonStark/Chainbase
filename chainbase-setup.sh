@@ -139,7 +139,7 @@ echo -e "${YELLOW}Running Eigenlayer Holesky Node...${NC}"
 eigenlayer operator register operator.yaml
 eigenlayer operator status operator.yaml
 
- Config Chainbase AVS and Edit .env File
+# Config Chainbase AVS and Edit .env File
 echo -e "${GREEN}Configuring Chainbase AVS...${NC}"
 
 echo -e "${CYAN}Please enter your Eigenlayer password:${NC}"
