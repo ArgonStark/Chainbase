@@ -77,7 +77,7 @@ cd chainbase-avs-setup/holesky
 
 # Key Management
 echo -e "${BLUE}Do you want to Import keys or Create new keys or have you already Imported?${NC}"
-  select option in "Import" "Create" "Already Imported"; do
+ - select option in "Import" "Create" "Already Imported"; do
   case $option in
     Import)
       read -p "Enter your private key: " PRIVATEKEY
