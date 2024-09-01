@@ -61,14 +61,11 @@ source $HOME/.bash_profile
 go version
 
 # Check if eigenlayer exists
-if [ ! -d "$HOME/.eigenlayer" ]; then
   echo -e "${YELLOW}Installing EigenLayer CLI...${NC}"
   curl -sSfL https://raw.githubusercontent.com/layr-labs/eigenlayer-cli/master/scripts/install.sh | sh -s
   export PATH=$PATH:~/bin
   eigenlayer --version
-else
-  echo -e "${GREEN}EigenLayer CLI already installed, skipping...${NC}"
-fi
+
 
 # Cloning Chainbase AVS repo
 echo -e "${YELLOW}Cloning Chainbase AVS repository...${NC}"
