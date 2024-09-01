@@ -81,11 +81,11 @@ select option in "Import" "Create" "Already Imported"; do
   case $option in
     Import)
       read -p "Enter your private key: " PRIVATEKEY
-      eigenlayer operator keys import --key-type ecdsa opr "$PRIVATEKEY"
+      ./eigenlayer operator keys import --key-type ecdsa opr "$PRIVATEKEY"
       break
       ;;
     Create)
-      eigenlayer operator keys create --key-type ecdsa opr
+      ./eigenlayer operator keys create --key-type ecdsa opr
       read -p "Have you backed up your keys? (yes/no): " backup
       if [ "$backup" != "yes" ]; then
         echo -e "${RED}Please back up your keys before proceeding.${NC}"
