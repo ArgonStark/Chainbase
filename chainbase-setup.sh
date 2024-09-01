@@ -274,6 +274,17 @@ EOL
 echo -e "${GREEN}Creating necessary folders for Docker...${NC}"
 source .env && mkdir -pv ${EIGENLAYER_HOME} ${CHAINBASE_AVS_HOME} ${NODE_LOG_PATH_HOST}
 
+# Function to update docker compose command in script
+fix_docker_compose() {
+    FILE="chainbase-avs.sh"
+    echo -e "${RED}Detected 'unknown shorthand flag: d in -d' error. Updating 'docker compose' to 'docker-compose' in $FILE...${NC}"
+    
+    # Replace 'docker compose' with 'docker-compose' using sed
+    sed -i 's/docker compose/docker-compose/g' "$FILE"
+    
+    echo -e "${GREEN}Update completed. Retrying...${NC}"
+}
+
 # Starting docker to prevent problems 
 echo -e "${GREEN}Starting Docker ...${NC}"
 systemctl start docker
@@ -315,6 +326,22 @@ echo -e "${GREEN}Registering AVS...${NC}"
 
 echo -e "${GREEN}Running AVS...${NC}"
 ./chainbase-avs.sh run
+
+# Check if the shorthand flag error occurred
+if echo "$output" | grep -q "unknown shorthand flag: 'd' in -d"; then
+    fix_docker_compose
+    # Retry running Chainbase AVS after fixing the script
+    output=$(./chainbase-avs.sh run 2>&1)
+    
+    # Check if the error persists
+    if echo "$output" | grep -q "unknown shorthand flag: 'd' in -d"; then
+        echo -e "${RED}Error persists even after the fix. Please check the script manually.${NC}"
+    else
+        echo -e "${GREEN}Chainbase AVS is running successfully after the fix.${NC}"
+    fi
+else
+    echo -e "${GREEN}Chainbase AVS is running successfully.${NC}"
+fi
 
 # Get AVS link
 echo -e "${GREEN}Fetching AVS link...${NC}"
