@@ -76,12 +76,12 @@ git clone https://github.com/chainbase-labs/chainbase-avs-setup
 cd chainbase-avs-setup/holesky
 
 # Key Management
-echo -e "${BLUE}Do you want to Import keys or Create new keys or have you already Imported?${NC}"
- - select option in "Import" "Create" "Already Imported"; do
+echo -e "${BLUE}Do you want to Import keys, Create new keys, or have you already Imported?${NC}"
+select option in "Import" "Create" "Already Imported"; do
   case $option in
     Import)
       read -p "Enter your private key: " PRIVATEKEY
-      eigenlayer operator keys import --key-type ecdsa opr $PRIVATEKEY
+      eigenlayer operator keys import --key-type ecdsa opr "$PRIVATEKEY"
       break
       ;;
     Create)
@@ -97,8 +97,12 @@ echo -e "${BLUE}Do you want to Import keys or Create new keys or have you alread
       echo -e "${GREEN}Skipping key creation/import...${NC}"
       break
       ;;
+    *)
+      echo -e "${RED}Invalid option. Please choose 1, 2, or 3.${NC}"
+      ;;
   esac
 done
+
 
 # Funding EigenLayer Ethereum Address
 echo -e "${BLUE}You need to fund your Eigenlayer address with at least 1 Holesky ETH . Did you fund your address (yes/no)${NC}"
