@@ -111,6 +111,23 @@ fi
 echo -e "${YELLOW}Configuring & registering operator...${NC}"
 ./eigenlayer operator config create
 
+# Edit metadata.json
+echo -e "${YELLOW}Please provide the following information to metadata.json and after that copy the your provided data and create a metadata file on your github !:${NC}"
+read -p "Name: " name
+read -p "Website: " website
+read -p "Description: " description
+read -p "Logo URL: " logo
+read -p "Twitter: " twitter
+cat << EOF > metadata.json
+{
+  "name": "$name",
+  "website": "$website",
+  "description": "$description",
+  "logo": "$logo",
+  "twitter": "$twitter"
+}
+EOF
+
 # Upload metadata file to GitHub and edit operator.yaml
 echo -e "${YELLOW}Upload the metadata file to your GitHub profile and provide the link:${NC}"
 read -p "GitHub Metadata URL: " metadata_url
