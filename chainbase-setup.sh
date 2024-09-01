@@ -78,11 +78,11 @@ select option in "Import" "Create" "Already Imported"; do
   case $option in
     Import)
       read -p "Enter your private key: " PRIVATEKEY
-      ./eigenlayer operator keys import --key-type ecdsa opr "$PRIVATEKEY"
+      eigenlayer operator keys import --key-type ecdsa opr "$PRIVATEKEY"
       break
       ;;
     Create)
-      ./eigenlayer operator keys create --key-type ecdsa opr
+      eigenlayer operator keys create --key-type ecdsa opr
       read -p "Have you backed up your keys? (yes/no): " backup
       if [ "$backup" != "yes" ]; then
         echo -e "${RED}Please back up your keys before proceeding.${NC}"
@@ -110,7 +110,7 @@ fi
 
 # Configure & Register Operator
 echo -e "${YELLOW}Configuring & registering operator...${NC}"
-./eigenlayer operator config create
+eigenlayer operator config create
 
 # Edit metadata.json
 echo -e "${YELLOW}Please provide the following information to metadata.json and after that copy the your provided data and create a metadata file on your github !:${NC}"
@@ -136,8 +136,8 @@ sed -i "s|metadata_url:.*|metadata_url: \"$metadata_url\"|" operator.yaml
 
 # Running Eigenlayer Holesky Node
 echo -e "${YELLOW}Running Eigenlayer Holesky Node...${NC}"
-./eigenlayer operator register operator.yaml
-./eigenlayer operator status operator.yaml
+eigenlayer operator register operator.yaml
+eigenlayer operator status operator.yaml
 
  Config Chainbase AVS and Edit .env File
 echo -e "${GREEN}Configuring Chainbase AVS...${NC}"
@@ -319,7 +319,7 @@ echo -e "${GREEN}Running AVS...${NC}"
 # Get AVS link
 echo -e "${GREEN}Fetching AVS link...${NC}"
 export PATH=$PATH:~/bin
-./eigenlayer operator status operator.yaml
+eigenlayer operator status operator.yaml
 
 # Checking Operator Health
 echo -e "${YELLOW}Checking operator health on port 8080...${NC}"
