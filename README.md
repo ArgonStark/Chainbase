@@ -18,6 +18,11 @@ wget https://raw.githubusercontent.com/ArgonStark/Chainbase/main/chainbase-setup
 
 **Check Operator Health**
 
+## Check chainbase-node logs
+```
+docker compose logs chainbase-node -f
+```
+
 ```console
 # If your port is 8080
 curl -i localhost:8080/eigen/node/health
@@ -31,11 +36,11 @@ Check docker containers
 Docker PS
 ```
 
-## 11. Fill in the form
+## 11. Fill this the form
 
 https://forms.gle/w9h8Su87kEnDwRMA7
 
-## 12. Post your Operator address in discord
+## Send your Operator address in discord
 
 https://discord.gg/chainbase
 
