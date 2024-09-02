@@ -16,19 +16,18 @@ wget https://raw.githubusercontent.com/ArgonStark/Chainbase/main/chainbase-setup
 - `signer type`: local_keystore
 - `ecdsa key path:`: /root/.eigenlayer/operator_keys/opr.ecdsa.key.json
 
-**Check Operator Health**
+## Check Operator Health
 
-## Check chainbase-node logs
+#### Check chainbase-node logs
 ```
 docker compose logs chainbase-node -f
 ```
-
-```console
-# If your port is 8080
+#### Check Operator Health
+```
 curl -i localhost:8080/eigen/node/health
 ```
 
-Check docker containers
+#### Check docker containers
 
 - You must have 4 new docker containers
 
@@ -36,11 +35,11 @@ Check docker containers
 Docker PS
 ```
 
-## 11. Fill this the form
+### Fill this the form
 
 https://forms.gle/w9h8Su87kEnDwRMA7
 
-## Send your Operator address in discord
+### Send your Operator address in discord
 
 https://discord.gg/chainbase
 
