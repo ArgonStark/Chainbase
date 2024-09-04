@@ -20,7 +20,7 @@ wget https://raw.githubusercontent.com/ArgonStark/Chainbase/main/chainbase-setup
 
 #### Check chainbase-node logs
 ```
-docker compose logs chainbase-node -f
+docker logs chainbase-node -f
 ```
 #### Check Operator Health
 ```
