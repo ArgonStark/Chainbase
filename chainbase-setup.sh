@@ -328,7 +328,7 @@ echo -e "${GREEN}Running AVS...${NC}"
 ./chainbase-avs.sh run
 
 # Check if the shorthand flag error occurred
-if echo "$output" | grep -q "unknown shorthand flag: 'd' in -d"; then
+if echo "$output" | grep -q "unknown shorthand flag"; then
     fix_docker_compose
     # Retry running Chainbase AVS after fixing the script
     output=$(./chainbase-avs.sh run 2>&1)
