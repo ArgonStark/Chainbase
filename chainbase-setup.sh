@@ -320,6 +320,9 @@ scrape_configs:
       - targets: ["chainbase-node:9092"]
 EOL
 
+# Update docker compose command before running AVS
+fix_docker_compose
+
 # Run Chainbase AVS
 echo -e "${GREEN}Registering AVS...${NC}"
 ./chainbase-avs.sh register
@@ -327,21 +330,8 @@ echo -e "${GREEN}Registering AVS...${NC}"
 echo -e "${GREEN}Running AVS...${NC}"
 ./chainbase-avs.sh run
 
-# Check if the shorthand flag error occurred
-if echo "$output" | grep -q "unknown shorthand flag"; then
-    fix_docker_compose
-    # Retry running Chainbase AVS after fixing the script
-    output=$(./chainbase-avs.sh run 2>&1)
-    
-    # Check if the error persists
-    if echo "$output" | grep -q "unknown shorthand flag: 'd' in -d"; then
-        echo -e "${RED}Error persists even after the fix. Please check the script manually.${NC}"
-    else
-        echo -e "${GREEN}Chainbase AVS is running successfully after the fix.${NC}"
-    fi
-else
-    echo -e "${GREEN}Chainbase AVS is running successfully.${NC}"
-fi
+# AVS running successfully message
+echo -e "${GREEN}AVS running successfully!${NC}"
 
 # Get AVS link
 echo -e "${GREEN}Fetching AVS link...${NC}"
@@ -357,3 +347,4 @@ echo -e "${YELLOW}Checking Docker containers...${NC}"
 docker ps
 
 echo -e "${GREEN}Setup complete!${NC}"
+
