@@ -14,7 +14,7 @@ wget https://raw.githubusercontent.com/ArgonStark/Chainbase/main/chainbase-setup
 - `ETH rpc url`: https://ethereum-holesky-rpc.publicnode.com
 - `network`: holesky
 - `signer type`: local_keystore
-- `ecdsa key path:`: /root/.eigenlayer/operator_keys/opr.ecdsa.key.json
+- `ecdsa key path:`: /root/.eigenlayer/operator_keys/opr.ecdsa.key.json `or` /root/.eigenlayer/operator_keys/myEigenDAKey.ecdsa.key.json
 
 ## Check Operator Health
 
