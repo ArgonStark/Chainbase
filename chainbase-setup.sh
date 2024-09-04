@@ -359,6 +359,7 @@ export PATH=$PATH:~/bin
 eigenlayer operator status operator.yaml
 
 # Checking Operator Health
+sleep 2
 echo -e "${YELLOW}Checking operator health on port 8080...${NC}"
 curl -i localhost:8080/eigen/node/health
 
