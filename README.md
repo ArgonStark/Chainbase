@@ -32,7 +32,7 @@ curl -i localhost:8080/eigen/node/health
 - You must have 4 new docker containers
 
 ```console
-Docker PS
+docker ps
 ```
 
 ### Fill this the form
