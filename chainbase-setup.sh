@@ -62,6 +62,24 @@ go version
 
 #!/bin/bash
 
+# Check if 'eigenlayer' exists and delete it
+if [ -e "eigenlayer" ]; then
+    echo -e "${YELLOW}Found 'eigenlayer'. Deleting...${NC}"
+    rm -rf eigenlayer
+    echo -e "${GREEN}'eigenlayer' deleted successfully.${NC}"
+else
+    echo -e "${CYAN}'eigenlayer' not found. Skipping deletion.${NC}"
+fi
+
+# Check if '.eigenlayer' exists and delete it
+if [ -d ".eigenlayer" ]; then
+    echo -e "${YELLOW}Found '.eigenlayer'. Deleting...${NC}"
+    rm -rf .eigenlayer
+    echo -e "${GREEN}'.eigenlayer' deleted successfully.${NC}"
+else
+    echo -e "${CYAN}'.eigenlayer' not found. Skipping deletion.${NC}"
+fi
+
 # Check if eigenlayer exists
   echo -e "${YELLOW}Installing EigenLayer CLI...${NC}"
   curl -sSfL https://raw.githubusercontent.com/layr-labs/eigenlayer-cli/master/scripts/install.sh | sh -s
